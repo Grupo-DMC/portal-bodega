@@ -1,0 +1,141 @@
+# ─────────────────────────────────────────────────────────────
+# DMC Bodega · .gitignore
+# Regla: se versiona SOLO código fuente y configuración reproducible.
+# Nunca: secretos, dependencias, artefactos de build, cachés ni
+# archivos del editor/sistema operativo.
+# ─────────────────────────────────────────────────────────────
+
+# ── Secretos y entorno (CRÍTICO: SESSION_SECRET, credenciales de SQL Server) ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+secrets/
+credentials*.json
+service-account*.json
+.npmrc
+.yarnrc.yml
+
+# ── Dependencias ──
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+jspm_packages/
+
+# ── Build de Next.js / salida ──
+.next/
+out/
+build/
+dist/
+.vercel
+.turbo/
+.swc/
+next-env.d.ts
+*.tsbuildinfo
+
+# ── Pruebas y cobertura ──
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+cypress/videos/
+cypress/screenshots/
+
+# ── Logs y volcados ──
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+*.heapsnapshot
+*.dmp
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ── Cachés de herramientas ──
+.cache/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_*/
+.node_repl_history
+*.tgz
+.npm/
+
+# ── Herramientas de IA / diseño (cachés y configuración local) ──
+.impeccable/
+.claude/settings.local.json
+.claude/projects/
+.claude/*.local.*
+CLAUDE.local.md
+
+# ── Datos locales (la app usa datos ficticios en memoria; esto evita subir
+#    por accidente respaldos, subidas de usuarios o bases de datos locales) ──
+uploads/
+storage/
+tmp/
+temp/
+*.bak
+*.backup
+*.mdf
+*.ldf
+*.bacpac
+*.sqlite
+*.sqlite3
+*.db
+*.csv.tmp
+# Exportaciones generadas a mano (el código de exportación está en src/)
+exports/
+
+# ── Editores / IDE ──
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.history/
+
+# ── Sistema operativo ──
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ── Archivos temporales de Office (por si se guardan planillas junto al código) ──
+~$*
+.~lock.*
